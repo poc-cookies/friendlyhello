@@ -71,6 +71,14 @@ Run service / scale the app:
 	docker stack deploy -c docker-compose.yml getstartedlab
 	(no need to tear the stack down first or kill any containers)
 
+List services:
+
+    docker service ls
+
+View tasks for a service:
+
+    docker service ps <service>
+
 View services associated with a stack:
 	
 	docker stack services <stack_name>
