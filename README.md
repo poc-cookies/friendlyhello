@@ -65,10 +65,6 @@ Enable swarm mode:
 	
 	docker swarm init
 
-List the machines and get their IP addresses:
-	
-	docker-machine ls
-
 Run service / scale the app:
 	
 	docker stack deploy -c docker-compose.yml <service_name>
@@ -93,3 +89,40 @@ Take the app down:
 Take down the swarm:
 	
 	docker swarm leave --force
+
+List the machines and get their IP addresses:
+	
+	docker-machine ls
+
+Send commands to your VMs:
+
+    docker-machine ssh <machine_name> <command>
+
+Instruct `myvm1` machine to become a swarm manager:
+
+    docker-machine ssh myvm1 "docker swarm init --advertise-addr <myvm1 ip>"
+    docker-machine ssh myvm1 "docker swarm init --advertise-addr 192.168.99.100"
+
+Add `myvm2` machine as a worker to the swarm:
+
+    docker-machine ssh myvm2 "docker swarm join --token <token> <ip>"
+
+List nodes in the swarm:
+
+    docker-machine ssh myvm1 "docker node ls"
+
+Get the command to configure your shell to talk to `myvm1`:
+
+    docker-machine env myvm1
+
+Configure your shell to talk to `myvm1`:
+
+    eval $(docker-machine env myvm1)
+
+Unset the `docker-machine` environment variables in your current shell:
+
+    eval $(docker-machine env -u)
+
+Restart a machine that’s stopped:
+
+    docker-machine start <machine-name>
