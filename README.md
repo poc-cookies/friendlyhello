@@ -146,3 +146,7 @@ Unset the `docker-machine` environment variables in your current shell:
 Restart a machine that’s stopped:
 
     docker-machine start <machine-name>
+
+## Docker Get Started Guide
+
+[Get Started Guide](https://docs.docker.com/get-started/)
