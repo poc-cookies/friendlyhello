@@ -40,6 +40,18 @@
 
 ## Commands
 
+Docker version:
+
+    docker --version
+
+View Docker installation details:
+
+    docker info
+
+Create image using this directory's Dockerfile:
+
+    docker build --tag=<tag_name> .
+
 List all images:
 
 	docker image ls
